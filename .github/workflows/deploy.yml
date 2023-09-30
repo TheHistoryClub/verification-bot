@@ -5,13 +5,13 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 * * * *'
 
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
 
-    timeout-minutes: 120
+    timeout-minutes: 59
 
     steps:
     - name: Checkout code
@@ -28,3 +28,6 @@ jobs:
 
     - name: Run Docker container
       run: docker run myapp:latest
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
