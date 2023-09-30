@@ -50,7 +50,7 @@ async def send_verification_code(ctx):
       message.channel, discord.TextChannel)
 
   try:
-    message = await bot.wait_for('message', timeout=30.0, check=check_email)
+    message = await bot.wait_for('message', timeout=120.0, check=check_email)
   except asyncio.TimeoutError:
     await ctx.send('Verification timed out. Please try again.')
     return
@@ -78,7 +78,7 @@ async def send_verification_code(ctx):
 
   try:
     message = await bot.wait_for('message',
-                                 timeout=30.0,
+                                 timeout=120.0,
                                  check=check_verification_code)
   except asyncio.TimeoutError:
     await ctx.send('Verification timed out. Please try again.')
