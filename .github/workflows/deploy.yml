@@ -30,4 +30,8 @@ jobs:
       run: docker run myapp:latest
 
     - name: Upload Artifact
+      if: always()
       uses: actions/upload-artifact@v3
+      with:
+        name: BuildArtifact
+        path: .
