@@ -1,0 +1,27 @@
+name: Build and Run Docker Container
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 120
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Create .env file from secrets
+      run: |
+        echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }}" > .env
+        echo "SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}" >> .env
+        echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> .env
+
+    - name: Build Docker image
+      run: docker build -t myapp:latest .
+
+    - name: Run Docker container
+      run: docker run myapp:latest
