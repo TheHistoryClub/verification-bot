@@ -1,11 +1,8 @@
 name: Build and Run Docker Container
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '0 * * * *'
+    - cron: '1 */1 */1 */1 */1'
 
 jobs:
   build-and-run:
