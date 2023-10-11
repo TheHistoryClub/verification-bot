@@ -2,13 +2,13 @@ name: Build and Run Docker Container
 
 on:
   schedule:
-    - cron: '1 */1 */1 */1 */1'
+    - cron: '0 */6 * * *'
 
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
 
-    timeout-minutes: 59
+    timeout-minutes: 3600
 
     steps:
     - name: Checkout code
