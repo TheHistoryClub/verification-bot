@@ -1,6 +1,7 @@
 name: Build and Run Docker Container
 
-on:
+on: 
+  workflow_dispatch:
   schedule:
     - cron: '0 */6 * * *'
 
