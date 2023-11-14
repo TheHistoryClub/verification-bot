@@ -30,4 +30,4 @@ jobs:
       run: docker build -t myapp:latest .
 
     - name: Run Docker container
-      run: docker run --stop-timeout 21300 myapp:latest
+      run: docker run --stop-timeout 21150 myapp:latest
