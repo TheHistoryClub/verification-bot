@@ -22,7 +22,7 @@ jobs:
         echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> .env
 
     - name: Build Docker image
-      run: docker build -t myapp:latest .
+      run: docker build -t verfication-bot .
 
     - name: Run Docker container
       run: |
