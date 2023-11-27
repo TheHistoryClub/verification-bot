@@ -2,8 +2,8 @@ import smtplib
 import random
 import os
 import logging
-from dotenv import load_dotenv
 import asyncio
+from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 
