@@ -1,11 +1,11 @@
-import discord
-from discord.ext import commands
 import smtplib
 import random
 import os
 import logging
 from dotenv import load_dotenv
 import asyncio
+import discord
+from discord.ext import commands
 
 load_dotenv()
 
