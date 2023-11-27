@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Starting the container"
-docker run -d verfication-bot
+docker run --name bot -d verfication-bot
 sleep 60
 echo "Sending SIGKILL to container"
-docker stop --signal SIGKILL verfication-bot
+docker stop --signal SIGKILL bot
