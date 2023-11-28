@@ -84,7 +84,7 @@ async def send_verification_code(ctx):
         )
 
     try:
-        message = await bot.wait_for(
+        message = await BOT.wait_for(
             "message", timeout=120.0, check=check_verification_code
         )
     except asyncio.TimeoutError:
