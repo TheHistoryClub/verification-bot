@@ -10,7 +10,7 @@ D=os.getenv('SMTP_USERNAME')
 N=os.getenv('SMTP_PASSWORD')
 I=['pausd.us']
 O=C.Intents.all()
-B=L.Bot(command_prefix='!',intents=O)
+B=L.Bot(command_prefix='/',intents=O)
 A.basicConfig(level=A.DEBUG)
 def Q():return str(F.randint(100000,999999))
 async def R(email,verification_code):
