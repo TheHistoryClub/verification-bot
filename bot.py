@@ -15,7 +15,7 @@ SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 ALLOWED_DOMAINS = ["pausd.us"]  # replace with the domains you want to allow
 
 INTENTS = discord.Intents.all()
-BOT = commands.Bot(command_prefix="~", intents=INTENTS)
+BOT = commands.Bot(command_prefix="/", intents=INTENTS)
 
 logging.basicConfig(level=logging.DEBUG)
 
