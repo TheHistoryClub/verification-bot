@@ -14,8 +14,8 @@ SMTP_USERNAME = os.getenv("SMTP_USERNAME")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 ALLOWED_DOMAINS = ["pausd.us"]  # replace with the domains you want to allow
 
-intents = discord.Intents.all()
-bot = commands.Bot(command_prefix="~", intents=intents)
+INTENRS = discord.Intents.all()
+BOT = commands.Bot(command_prefix="~", intents=INTENRS)
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -54,7 +54,7 @@ async def send_verification_code(ctx):
         )
 
     try:
-        message = await bot.wait_for("message", timeout=120.0, check=check_email)
+        message = await BOT.wait_for("message", timeout=120.0, check=check_email)
     except asyncio.TimeoutError:
         await ctx.send("Verification timed out. Please try again.")
         return
@@ -100,12 +100,12 @@ async def send_verification_code(ctx):
     await ctx.send("You have been verified!")
 
 
-@bot.event
+@BOT.event
 async def on_ready():
     logging.info("Bot is ready.")
 
 
-@bot.event
+@BOT.event
 async def on_member_join(member):
     user = member
     await user.send(
@@ -113,9 +113,9 @@ async def on_member_join(member):
     )
 
 
-@bot.command()
+@BOT.command()
 async def verify(ctx):
     await send_verification_code(ctx)
 
 
-bot.run(BOT_TOKEN)
+BOT.run(BOT_TOKEN)
