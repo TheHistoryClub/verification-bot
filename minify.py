@@ -10,12 +10,12 @@ D=os.getenv('SMTP_USERNAME')
 N=os.getenv('SMTP_PASSWORD')
 I=['pausd.us']
 O=C.Intents.all()
-B=L.Bot(command_prefix='~',intents=O)
+B=L.Bot(command_prefix='!',intents=O)
 A.basicConfig(level=A.DEBUG)
 def Q():return str(F.randint(100000,999999))
 async def R(email,verification_code):
 	F=verification_code;B=email
-	if B.split(E)[-1]not in I:return f"Error: {B} is not a valid email address for verification. Please use @pausd.us instead, or contact an admin."
+	if B.split(E)[-1]not in I:return f"Error: {B} is not a valid email address for verification.Please use @pausd.us instead, or contact an admin."
 	H='smtp.gmail.com';J=587;K=f"Subject: Verification Code\n\nYour verification code is {F}"
 	with G.SMTP(H,J)as C:C.starttls();C.login(D,N);C.sendmail(D,B,K)
 	A.debug(f"Verification code {F} sent to {B}.")
@@ -25,7 +25,7 @@ async def P(ctx):
 	try:K=await B.wait_for(O,timeout=12e1,check=S)
 	except H.TimeoutError:await A.send(P);return
 	D=K.content.strip()
-	if D.split(E)[-1]not in I:await A.send(f"Error: {D} is not a valid email address for verification. Please use @pausd.us instead, or contact an admin.");return
+	if D.split(E)[-1]not in I:await A.send(f"Error: {D} is not a valid email address for verification.Please use @pausd.us instead, or contact an admin.");return
 	L=Q();M=await R(D,L)
 	if M is not None:await A.send(M);return
 	await A.send(f"Please enter the verification code sent to {D}.")
