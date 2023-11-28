@@ -14,8 +14,8 @@ SMTP_USERNAME = os.getenv("SMTP_USERNAME")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 ALLOWED_DOMAINS = ["pausd.us"]  # replace with the domains you want to allow
 
-INTENRS = discord.Intents.all()
-BOT = commands.Bot(command_prefix="~", intents=INTENRS)
+INTENTS = discord.Intents.all()
+BOT = commands.Bot(command_prefix="~", intents=INTENTS)
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -26,7 +26,8 @@ def generate_verification_code():
 
 async def send_verification_email(email, verification_code):
     if email.split("@")[-1] not in ALLOWED_DOMAINS:
-        return f"Error: {email} is not a valid email address for verification. Please use @pausd.us instead, or contact an admin."
+        return (f"Error: {email} is not a valid email address for verification."
+                f"Please use @pausd.us instead, or contact an admin.")
 
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
@@ -63,7 +64,8 @@ async def send_verification_code(ctx):
 
     if email.split("@")[-1] not in ALLOWED_DOMAINS:
         await ctx.send(
-            f"Error: {email} is not a valid email address for verification. Please use @pausd.us instead, or contact an admin."
+            f"Error: {email} is not a valid email address for verification."
+            f"Please use @pausd.us instead, or contact an admin."
         )
         return
 
