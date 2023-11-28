@@ -38,5 +38,5 @@ async def S():A.info('Bot is ready.')
 @B.event
 async def T(member):A=member;await A.send(f"Welcome to the server, {A.mention}! Please verify yourself by using the `~verify` command.")
 @B.command()
-async def U(ctx):await P(ctx)
+async def verify(ctx):await P(ctx)
 B.run(M)
