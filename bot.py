@@ -111,7 +111,7 @@ async def on_ready():
 async def on_member_join(member):
     user = member
     await user.send(
-        f"Welcome to the server, {user.mention}! Please verify yourself by using the `~verify` command."
+        f"Welcome to the server, {user.mention}! Please verify yourself by using the `/verify` command."
     )
 
 
